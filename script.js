@@ -34,21 +34,87 @@ document.addEventListener('mousemove', (event) => {
 });
 
 
-const QA = document.querySelector('.QorA');
-QA.classList.add("hide");
-const topics = document.querySelectorAll('.topic'); // Select all topic elements
-const questionBoxes = document.querySelectorAll(".topicsScreenBg, .topicImg"); // Select both elements to hide
+const topicImg = document.querySelector('.topicImg');
+const topicsScreenBg = document.querySelector('.topicsScreenBg');
+const QorA = document.querySelector('.QorA');
 
-// Loop through each topic element and add the event listener
-topics.forEach(topic => {
-    topic.addEventListener("click", () => {
-        questionBoxes.forEach(box => {
-            // document.querySelector(".topicImg").classList.add("hide");
-            box.classList.add("hide"); // Hide both types of question boxes
-        });
-        QA.classList.remove("hide"); // Show the QA element
-    });
+function showQorA() {
+  // Add hidden class to fade out topicImg and topicScreenBg
+//   topicImg.classList.add('hidden');
+//   topicsScreenBg.classList.add('hidden');
+
+  // After the fade-out transition is complete, hide them and show QorA
+    topicsScreenBg.style.width = '2000px';
+    // topicsScreenBg.style.marginLeft = '10px';
+    document.querySelector(".topicWords").classList.add('hidden');
+    document.querySelector(".topics").classList.add('hidden');
+    setTimeout(() => {
+    // topicImg.style.display = 'none';
+    // topicsScreenBg.style.display = 'none';
+    
+        QorA.style.display = 'block';
+        QorA.classList.add('show'); // Trigger fade-in
+        document.querySelector(".backTopic").classList.add('show');
+
+
+    // QorA.classList.add('show'); // Trigger fade-in
+    // QorA.style.display = 'block'; // Make QorA block to take space
+
+    // QorA.classList.add('show'); // Trigger fade-in
+    }, 500); // Match this with the CSS transition duration
+}
+
+// Add click event listener to your topic elements
+document.querySelectorAll('.topic').forEach(topic => {
+  topic.addEventListener('click', showQorA);
 });
+
+function hideQorA(){
+    topicImg.style.width = '850px';
+}
+document.querySelector('.backTopic').addEventListener('click', hideQorA);
+
+
+const balanceButton = document.getElementById('Balance');
+const walletButton = document.getElementById('Wallet');
+const customcursor = document.querySelector('.custom-cursor');
+
+// Function to hide the custom cursor
+function hideCustomCursor() {
+    customcursor.style.opacity = '0';
+}
+
+// Function to show the custom cursor
+function showCustomCursor() {
+    customcursor.style.opacity = '1';
+}
+
+// Attach event listeners
+balanceButton.addEventListener('mouseenter', hideCustomCursor);
+balanceButton.addEventListener('mouseleave', showCustomCursor);
+walletButton.addEventListener('mouseenter', hideCustomCursor);
+walletButton.addEventListener('mouseleave', showCustomCursor);
+
+
+
+
+// const QA = document.querySelector('.QorA');
+// QA.classList.add("hide");
+// const topics = document.querySelectorAll('.topic'); // Select all topic elements
+// const questionBoxes = document.querySelectorAll(".topicsScreenBg, .topicImg"); // Select both elements to hide
+
+// // Loop through each topic element and add the event listener
+// topics.forEach(topic => {
+//     topic.addEventListener("click", () => {
+//         questionBoxes.forEach(box => {
+//             // document.querySelector(".topicImg").classList.add("hide");
+//             box.classList.add("hide"); // Hide both types of question boxes
+//         });
+//         // document.querySelector(".topicImg").classList.add("hide");
+//         // questionBoxes.classList.add("hide");
+//         QA.classList.remove("hide"); // Show the QA element
+//     });
+// });
 
 
 // const QA = document.querySelector('.QorA');
@@ -74,5 +140,3 @@ topics.forEach(topic => {
 //         }, 50); // Delay slightly to ensure the display changes before the fade-in starts
 //     });
 // });
-
-
