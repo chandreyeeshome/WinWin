@@ -57,22 +57,43 @@ header{
     /* width: 180px; */
     height: 35px;
     color: #FFBF00;
-    background-color: transparent;
+    /* background-color: transparent; */
+
     border: solid #FFBF00 1px;
     border-radius: 20px;
     /* margin-left: 20px; */
     /* margin-top: 5px; */
     font-size:medium;
     font-family: "Poppins", sans-serif;
-    cursor: pointer;
+    cursor: none;
 }
 #Balance{
     margin-left: 1180px;
     width: 100px;
+    background: linear-gradient(135deg, #ffbf00 50%, rgb(12, 12, 12) 50%);
+    background-size: 200% 200%;
+    background-position: 100% 100%;
+    transition: background-position 0.4s ease;
+}
+#Balance:hover{
+    /* background-color: #FFBF00; */
+    background-position: 0 0;
+
+    color:rgb(12, 12, 12);
 }
 #Wallet{
     margin-left: 10px;
     width: 180px;
+    background: linear-gradient(135deg, #ffbf00 50%, rgb(12, 12, 12) 50%);
+    background-size: 200% 200%;
+    background-position: 100% 100%;
+    transition: background-position 0.4s ease;
+}
+#Wallet:hover{
+    /* background-color: #FFBF00; */
+    background-position: 0 0;
+
+    color:rgb(12, 12, 12);
 }
 .welcomeScreen{
     /* width: 90%; */
@@ -241,24 +262,15 @@ header{
 .hide{
     display: none;
 }
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden; 
-}
-.show {
-    opacity: 1; /* Fade in */
-    pointer-events: auto; /* Enable interaction */
-    visibility: visible; 
-}
+
 /* .hide{
     display: none;
 
 } */
 
 .Question{
-    opacity: 1;
-    transition: opacity 0.3s ease;
+    /* opacity: 1; */
+    /* transition: opacity 0.3s ease; */
     /* position: relative; */
     /* border: solid #FFBF00 1px; */
     height: 600px;
@@ -271,20 +283,11 @@ header{
     margin-bottom: 20px;
     /* align-items: flex-end; */
 }
-.QorA{
-    /* position: absolute; Allow one to cover the other */
-    transition: opacity 0.3s ease;
-    opacity: 1; /* Start visible */
 
-    background-color: rgb(27, 27, 27);
-    height: 600px;
-    width: 2000px;
-    border-radius: 8px;
-    border: solid rgb(57, 57, 57) 1px;
-}
 .topicsScreenBg{
     /* position: absolute; Allow one to cover the other */
-    transition: opacity 0.3s ease;
+    /* transition: opacity 0.3s ease; */
+    transition: 1.5s ease;
     opacity: 1;
 
     background-color: rgb(27, 27, 27);
@@ -292,7 +295,7 @@ header{
     width: 1050px;
     border-radius: 8px;
     border: solid rgb(57, 57, 57) 1px;
-
+    /* display: block; */
 
     /* border: solid #FFBF00 1px; */
     /* margin: 0 auto; */
@@ -302,18 +305,64 @@ header{
 }
 .topicImg{
     /* position: absolute; Allow one to cover the other */
-    transition: opacity 0.3s ease;
+    transition: opacity 1.5s ease;
     opacity: 1;
-
     margin-right: 10px;
     width: 440px;
     height: 600px;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     background-color: rgb(27, 27, 27);
     border: solid rgb(113, 113, 113) 1px;
     border-radius: 8px;
+}
+.backTopic{
+    transition: opacity 0.7 ease;
+    opacity: 0; 
+
+    /* margin-top: 10px; */
+    margin-left: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color:#e5e5e5;
+    font-size: 35px;
+    font-family: "DM Sans", sans-serif;
+    font-style:normal;
+}
+.QorA{  
+    transition: opacity 0.7 ease;
+    opacity: 0; 
+    display: none;
+    color: white;
+    /* background-color: rgb(27, 27, 27); */
+    height: 200px;
+    width: 600px;
+    margin-top: 50px;
+    margin-left: 50px;
+    /* border-radius: 8px; */
+    border: solid rgb(57, 57, 57) 1px;
+}
+.topicWords, .topics{
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+.hidden {
+    opacity: 0;
+    display: none;
+    height: 0;
+    pointer-events: none;
+}
+.show { 
+    opacity: 1;
+    /* visibility: visible; */
+    /* display: block; */
+}
+.topicSvg{
+    margin-top: 127px;
 }
 .topicWords{
     /* opacity: 1; */
@@ -345,7 +394,8 @@ header{
     font-size: 23px;
     font-family: "DM Sans", sans-serif;
     font-style:normal;
-    cursor: pointer;
+    /* cursor: pointer; */
+    
 }
 .row1, .row2{
     display: flex;
